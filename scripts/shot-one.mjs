@@ -1,0 +1,13 @@
+import { chromium } from "playwright";
+import { join } from "node:path";
+const out = join(process.cwd(), "reference", "compare");
+const browser = await chromium.launch();
+const p = await browser.newPage({ viewport: { width: 1200, height: 900 } });
+await p.goto("http://localhost:3000/", { waitUntil: "networkidle" });
+await p.waitForTimeout(800);
+const el = await p.locator("section.bg-zinc-100").first();
+await el.scrollIntoViewIfNeeded();
+await p.waitForTimeout(500);
+await el.screenshot({ path: join(out, "v3-compare-only.png") });
+await browser.close();
+console.log("done");
