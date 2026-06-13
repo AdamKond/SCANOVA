@@ -24,7 +24,7 @@ export default function LandingHero() {
         fill
         priority
         sizes="100vw"
-        className="object-cover object-right lg:translate-x-[3%]"
+        className="object-cover object-right translate-x-[22%] sm:translate-x-[14%] lg:translate-x-[3%]"
       />
       {/* scrim — ciemny po lewej (czytelność tekstu), lżejszy po prawej (widoczny stojak) */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#07194a] from-5% via-[#07194a]/70 via-[45%] to-[#07194a]/20 to-[80%] lg:via-[#07194a]/45 lg:to-transparent" />
