@@ -8,10 +8,10 @@ import { Zap } from "lucide-react";
 export default function FloatingCta() {
   return (
     <motion.div
-      initial={{ opacity: 0, x: -30 }}
+      initial={{ opacity: 0, x: 30 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ delay: 1.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed bottom-6 left-6 z-40"
+      className="fixed bottom-6 right-6 z-40"
     >
       <Link
         href="/produkt/wizytowka-opinii-google"

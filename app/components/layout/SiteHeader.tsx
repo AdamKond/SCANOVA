@@ -20,7 +20,7 @@ export default function SiteHeader() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4">
         <Link href="/" aria-label="Scanova — strona główna" className="flex items-center">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/brand/scanova-logo.svg" alt="Scanova" className="h-7 w-auto" />
+          <img src="/brand/scanova-logo.svg" alt="Scanova" className="h-9 w-auto sm:h-10" />
         </Link>
 
         <div className="relative">
