@@ -32,10 +32,8 @@ export default function Home() {
         <StarRating />
       </div>
 
-      {/* duża animacja produktu (scroll) — tylko desktop, na telefonie zbyt długa */}
-      <div className="hidden lg:block">
-        <Hero />
-      </div>
+      {/* duża animacja produktu (scroll) */}
+      <Hero />
 
       <FeatureSection />
       <HowItWorks />
