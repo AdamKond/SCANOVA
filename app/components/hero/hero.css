@@ -448,6 +448,12 @@
   color: var(--sub);
   font-size: 15.5px;
 }
+/* na telefonie napis "Opinia gotowa" w animacji jest ukryty */
+@media (max-width: 640px) {
+  .payoff {
+    display: none;
+  }
+}
 
 .cta {
   display: inline-flex;

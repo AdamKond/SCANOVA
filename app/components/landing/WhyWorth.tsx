@@ -57,7 +57,7 @@ const item: Variants = {
 
 export default function WhyWorth() {
   return (
-    <section className="bg-white py-20 lg:py-28">
+    <section className="bg-gradient-to-b from-white to-blue-50/60 py-20 lg:py-28">
       <div className="mx-auto max-w-5xl px-4">
         <p className="text-center text-sm font-semibold uppercase tracking-[0.16em] text-blue-600">
           Dlaczego warto
@@ -77,13 +77,20 @@ export default function WhyWorth() {
             <motion.div
               key={title}
               variants={item}
-              className="rounded-2xl border border-zinc-200 bg-white p-6 transition hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg"
+              className="group relative overflow-hidden rounded-2xl border border-zinc-200/80 bg-white p-6 shadow-sm transition duration-300 hover:-translate-y-1.5 hover:border-blue-300 hover:shadow-xl hover:shadow-blue-600/10"
             >
-              <span className="grid h-12 w-12 place-items-center rounded-2xl bg-blue-100 text-blue-600">
-                <Icon className="h-6 w-6" />
+              {/* poświata na hover */}
+              <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-blue-500/0 blur-2xl transition duration-300 group-hover:bg-blue-500/15" />
+              {/* akcent u góry */}
+              <div className="pointer-events-none absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-to-r from-blue-400 to-blue-600 transition-transform duration-300 group-hover:scale-x-100" />
+
+              <span className="relative grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-blue-500 to-blue-700 text-white shadow-lg shadow-blue-600/30 transition duration-300 group-hover:scale-105">
+                <Icon className="h-7 w-7" />
               </span>
-              <h3 className="mt-4 font-display text-lg font-bold text-zinc-900">{title}</h3>
-              <p className="mt-1.5 text-sm leading-relaxed text-zinc-600">{desc}</p>
+              <h3 className="relative mt-5 font-display text-lg font-bold text-zinc-900">
+                {title}
+              </h3>
+              <p className="relative mt-1.5 text-sm leading-relaxed text-zinc-600">{desc}</p>
             </motion.div>
           ))}
         </motion.div>
