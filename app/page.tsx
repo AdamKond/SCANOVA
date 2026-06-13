@@ -26,19 +26,26 @@ export default function Home() {
       <Marquee items={MARQUEE} />
       <StatsBar />
       <ComparisonTable />
-      <StarRating />
 
-      {/* Animacja produktowa */}
-      <div id="jak-to-dziala">
+      {/* dekoracyjna animacja gwiazdek — tylko na desktopie */}
+      <div className="hidden lg:block">
+        <StarRating />
+      </div>
+
+      {/* duża animacja produktu (scroll) — tylko desktop, na telefonie zbyt długa */}
+      <div className="hidden lg:block">
         <Hero />
       </div>
 
-      {/* Sekcja "Jedna wizytówka. Więcej opinii." — pod animacją */}
       <FeatureSection />
-
       <HowItWorks />
       <Testimonials />
-      <PillMarquee />
+
+      {/* drugi pasek korzyści — tylko desktop */}
+      <div className="hidden lg:block">
+        <PillMarquee />
+      </div>
+
       <WhyWorth />
     </main>
   );

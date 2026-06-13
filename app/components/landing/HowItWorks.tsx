@@ -78,7 +78,7 @@ const STEPS = [
 
 export default function HowItWorks() {
   return (
-    <section id="zamow" className="bg-white py-20 lg:py-28">
+    <section id="jak-to-dziala" className="bg-white py-20 lg:py-28">
       <div className="mx-auto max-w-5xl px-4">
         <p className="text-center text-sm font-semibold uppercase tracking-[0.16em] text-blue-600">
           Jak to działa
