@@ -13,6 +13,7 @@ import ProductGallery from "./ProductGallery";
 import FormatSelector from "./FormatSelector";
 import QuantitySelector from "./QuantitySelector";
 import Accordion from "./Accordion";
+import LoadingScreen from "../layout/LoadingScreen";
 
 type Props = {
   product: Product;
@@ -41,7 +42,9 @@ export default function ProductPage({ product }: Props) {
   };
 
   return (
-    <div className="mx-auto grid max-w-6xl gap-8 px-4 py-8 lg:grid-cols-2 lg:gap-12 lg:py-12">
+    <>
+      <LoadingScreen fadeAt={1100} removeAt={1600} />
+      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-8 lg:grid-cols-2 lg:gap-12 lg:py-12">
       {/* galeria */}
       <div className="lg:sticky lg:top-24 lg:self-start">
         <ProductGallery key={format.id} images={format.gallery} />
@@ -123,5 +126,6 @@ export default function ProductPage({ product }: Props) {
         <Accordion items={product.accordions} />
       </div>
     </div>
+    </>
   );
 }

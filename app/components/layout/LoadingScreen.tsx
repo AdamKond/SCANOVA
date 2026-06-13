@@ -4,19 +4,26 @@ import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import Loader from "../ui/loader-5";
 
+type Props = {
+  /** kiedy zacząć znikać (ms) */
+  fadeAt?: number;
+  /** kiedy usunąć z DOM (ms) */
+  removeAt?: number;
+};
+
 /** Pełnoekranowy ekran ładowania: animowane logo nad loaderem, znika płynnie. */
-export default function LoadingScreen() {
+export default function LoadingScreen({ fadeAt = 2400, removeAt = 2950 }: Props) {
   const [fading, setFading] = useState(false);
   const [gone, setGone] = useState(false);
 
   useEffect(() => {
-    const t1 = setTimeout(() => setFading(true), 1400);
-    const t2 = setTimeout(() => setGone(true), 1950);
+    const t1 = setTimeout(() => setFading(true), fadeAt);
+    const t2 = setTimeout(() => setGone(true), removeAt);
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
     };
-  }, []);
+  }, [fadeAt, removeAt]);
 
   if (gone) return null;
 
