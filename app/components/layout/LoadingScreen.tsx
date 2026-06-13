@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Loader from "../ui/loader-5";
 
-/** Pełnoekranowy ekran ładowania pokazywany na starcie, znika płynnie. */
+/** Pełnoekranowy ekran ładowania: logo nad animacją, znika płynnie. */
 export default function LoadingScreen() {
   const [fading, setFading] = useState(false);
   const [gone, setGone] = useState(false);
@@ -22,10 +22,17 @@ export default function LoadingScreen() {
   return (
     <div
       aria-hidden
-      className={`fixed inset-0 z-[100] grid place-items-center bg-white transition-opacity duration-500 ${
+      className={`fixed inset-0 z-[100] bg-white transition-opacity duration-500 ${
         fading ? "pointer-events-none opacity-0" : "opacity-100"
       }`}
     >
+      {/* logo nad animacją */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/brand/scanova-logo.svg"
+        alt="Scanova"
+        className="absolute left-1/2 top-1/2 h-10 w-auto -translate-x-1/2 -translate-y-[150px]"
+      />
       <Loader />
     </div>
   );
