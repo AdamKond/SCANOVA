@@ -17,21 +17,21 @@ const item: Variants = {
 export default function LandingHero() {
   return (
     <section className="relative isolate overflow-hidden bg-[#07194a]">
-      {/* desktop: zdjęcie jako tło */}
+      {/* zdjęcie jako tło (przycięte), dosunięte mocno w prawo na telefonie */}
       <Image
         src="/brand/hero-najlepsza.png"
-        alt=""
+        alt="Stojak Scanova z wizytówką opinii Google"
         fill
         priority
         sizes="100vw"
-        className="hidden object-cover object-right lg:block lg:translate-x-[3%]"
+        className="object-cover object-right translate-x-[34%] sm:translate-x-[18%] lg:translate-x-[3%]"
       />
-      {/* desktop scrim */}
-      <div className="absolute inset-0 hidden bg-gradient-to-r from-[#07194a] from-5% via-[#07194a]/45 via-[48%] to-transparent to-[72%] lg:block" />
+      {/* scrim — mocno ciemny po lewej (czytelny tekst), jaśniejszy po prawej (widoczny stojak) */}
+      <div className="absolute inset-0 bg-gradient-to-r from-[#07194a] from-0% via-[#07194a]/85 via-[42%] to-[#07194a]/15 to-[80%] lg:from-5% lg:via-[#07194a]/45 lg:via-[48%] lg:to-transparent lg:to-[72%]" />
       {/* dekoracyjna poświata */}
       <div className="pointer-events-none absolute -left-24 top-1/3 h-96 w-96 rounded-full bg-blue-500/20 blur-3xl" />
 
-      <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-12 lg:min-h-[78vh] lg:grid-cols-2 lg:gap-6 lg:py-0">
+      <div className="relative mx-auto flex min-h-[72vh] max-w-6xl items-center px-4 py-16 lg:min-h-[78vh]">
         <motion.div variants={container} initial="hidden" animate="show" className="max-w-lg">
           <motion.span
             variants={item}
@@ -89,24 +89,6 @@ export default function LandingHero() {
               <Check className="h-4 w-4 text-blue-300" /> Wysyłka następnego dnia
             </span>
           </motion.div>
-        </motion.div>
-
-        {/* mobile: pełne zdjęcie pod tekstem (całe widoczne) */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="lg:hidden"
-        >
-          <Image
-            src="/brand/hero-najlepsza.png"
-            alt="Stojak Scanova z wizytówką opinii Google"
-            width={1672}
-            height={941}
-            priority
-            sizes="100vw"
-            className="w-full rounded-2xl shadow-2xl shadow-black/40 ring-1 ring-white/10"
-          />
         </motion.div>
       </div>
     </section>
